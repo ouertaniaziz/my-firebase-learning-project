@@ -39,9 +39,9 @@ rootRef.on(
         "<td>" +
         issue.severity +
         "</td><td>" +
-        encodeHtml(issue.test1) +
+        encodeHtml(issue.description) +
         "</td><td>" +
-        issue.test2 +
+        issue.resolved +
         "</td>";
       listTableBody.append(row);
     });
@@ -64,8 +64,11 @@ function addNewIssue() {
     return;
   }
 
-  // Add code to insert into firebase here
-
+  rootRef.push({
+    description: description,
+    resolved: resolved,
+    severity: severity,
+  });
   document.getElementById("description-textfield").value = "";
 }
 
