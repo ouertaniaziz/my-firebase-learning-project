@@ -39,9 +39,18 @@ rootRef.on(
         "<td>" +
         issue.severity +
         "</td><td>" +
-        encodeHtml(issue.description) +
+        issue.description +
         "</td><td>" +
-        issue.resolved +
+        "<select onchange='updateIssue(\"" +
+        child.key +
+        "\", this.value)'>" +
+        "<option value='no'" +
+        (issue.resolved == "no" ? " selected" : "") +
+        ">no</option>" +
+        "<option value='yes'" +
+        (issue.resolved == "yes" ? " selected" : "") +
+        ">yes</option>" +
+        "</select>" +
         "</td>";
       listTableBody.append(row);
     });
@@ -75,12 +84,11 @@ function addNewIssue() {
 // Task 6 ------------------------------------------
 
 function updateIssue(issueKey, newResolvedValue) {
-  alert(
-    "update function for issue key: " +
-      issueKey +
-      "newResolveValue: " +
-      newResolvedValue
-  );
+  var recordRef = firebase.database().ref("remotedigitalschool/" + issueKey);
+
+  recordRef.update({
+    resolved: newResolvedValue,
+  });
 }
 
 // Task 7 ------------------------------------------
