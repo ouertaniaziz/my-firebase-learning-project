@@ -17,19 +17,34 @@ firebase.analytics();
 
 // Paste the web app's configuration above this line
 // Our code starts below
-const rootRef = firebase.database().ref("issues/");
+const rootRef = firebase.database().ref("remotedigitalschool/");
 // GET A ROOT REFERENCE to issues HERE (type along)
 
 // Task 3 ------------------------------------------
 
 rootRef.push({
-  description: "Logo does not show up on screen 3",
-  resolved: "yes",
+  test1: "hhhhhhhhhhhhhh",
+  test2: "noo",
+  severity: "minor",
+});
+rootRef.push({
+  test1: "hhhhhhhhhhhhhh",
+  test2: "noo",
+  severity: "minor",
+});
+rootRef.push({
+  test1: "hhhhhhhhhhhhhh",
+  test2: "noo",
+  severity: "minor",
+});
+rootRef.push({
+  test1: "hhhhhhhhhhhhhh",
+  test2: "noo",
   severity: "minor",
 });
 
 rootRef.push({
-  description: "Screen flashes on save",
+  description: "aziz houssem on bilel",
   resolved: "no",
   severity: "moderate",
 });
