@@ -51,7 +51,10 @@ rootRef.on(
         (issue.resolved == "yes" ? " selected" : "") +
         ">yes</option>" +
         "</select>" +
-        "</td>";
+        "</td>" +
+        "<td onclick='deleteIssue(\"" +
+        child.key +
+        "\")'>x</td>";
       listTableBody.append(row);
     });
   },
@@ -98,6 +101,21 @@ function deleteIssue(issueKey) {
     alert("delete function for issue key: " + issueKey);
   }
 }
+
+// function deleteIssue(issueKey) {
+//   if (confirm("Are you sure?")) {
+//     var recordRef = firebase.database().ref("remotedigitalschool/" + issueKey);
+//     recordRef
+//       .remove()
+//       .then(function () {
+//         alert("Issue " + issueKey + " has been deleted successfully.");
+//       })
+//       .catch(function (error) {
+//         console.error("Error deleting issue: ", error);
+//       });
+//   }
+// }
+
 
 // Utility function to encode special HTML characters so that the
 // web browser does not treat them as HTML tags

@@ -48,3 +48,25 @@ rootRef.push({
   resolved: "no",
   severity: "moderate",
 });
+/*      "<td><input type='button' class='btn btn-danger' value='X' onclick='deleteIssue(\"" + child.key + "\")'/></td>";
+ */
+
+// Task 7 ------------------------------------------
+
+function deleteIssue(issueKey) {
+  if (confirm("Are you sure?")) {
+    alert("delete function for issue key: " + issueKey);
+  }
+}
+
+// Utility function to encode special HTML characters so that the
+// web browser does not treat them as HTML tags
+// but as literal characters
+
+function encodeHtml(str) {
+  str = str.replace(/&/g, "&amp;");
+  str = str.replace(/</g, "&lt;");
+  str = str.replace(/>/g, "&gt;");
+  str = str.replace(/ /g, "&nbsp;");
+  return str;
+}
